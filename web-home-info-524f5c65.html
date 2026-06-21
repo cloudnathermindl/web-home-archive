@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>稳定入口 · 爱游戏平台说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f2f3f5;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e1e2a;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .page {
+            max-width: 820px;
+            width: 100%;
+        }
+
+        /* 标题区 — 简洁博客式 */
+        .hero-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.4rem 2rem 1.8rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.04);
+            border: 1px solid #e6e8ec;
+            margin-bottom: 2rem;
+        }
+        .hero-card h1 {
+            font-size: 2rem;
+            font-weight: 560;
+            letter-spacing: -0.02em;
+            color: #14151c;
+            margin-bottom: 0.6rem;
+        }
+        .hero-card .subhead {
+            font-size: 1rem;
+            color: #5b5e6e;
+            border-left: 3px solid #9aa0b0;
+            padding-left: 1rem;
+            margin: 0.2rem 0 0.5rem 0;
+        }
+        .meta-line {
+            display: inline-block;
+            font-size: 0.8rem;
+            color: #8f93a2;
+            background: #f0f1f4;
+            padding: 0.15rem 0.8rem;
+            border-radius: 30px;
+            margin-top: 0.5rem;
+        }
+
+        /* 卡片分区 — 浅灰背景、细边框柔和阴影 */
+        .section-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 1.6rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.03);
+            border: 1px solid #e8eaef;
+        }
+        .section-card h2 {
+            font-size: 1.25rem;
+            font-weight: 520;
+            color: #171a24;
+            margin-bottom: 1rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid #edf0f5;
+        }
+        .section-card p {
+            margin-bottom: 1.1rem;
+            font-size: 0.96rem;
+            letter-spacing: 0.01em;
+        }
+        .section-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 引用块 / 提示 */
+        .callout {
+            background: #f6f8fc;
+            border-left: 4px solid #b3bbd0;
+            border-radius: 10px;
+            padding: 1.2rem 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+            font-size: 0.94rem;
+            color: #2f3342;
+        }
+        .callout strong {
+            font-weight: 550;
+            color: #141723;
+        }
+
+        /* 内嵌链接 - 自然融入句子 */
+        a {
+            color: #2b4b7a;
+            text-decoration: none;
+            border-bottom: 1px solid #d0d8e6;
+            transition: border 0.1s ease;
+        }
+        a:hover {
+            border-bottom: 2px solid #1f3f63;
+        }
+
+        /* 场景网格 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.2rem 0 0.2rem;
+        }
+        .feature-item {
+            background: #f9fafc;
+            border-radius: 16px;
+            padding: 1rem 1.2rem;
+            border: 1px solid #e6e9f0;
+            transition: box-shadow 0.15s;
+        }
+        .feature-item h3 {
+            font-size: 0.95rem;
+            font-weight: 520;
+            color: #1d202e;
+            margin-bottom: 0.25rem;
+        }
+        .feature-item p {
+            font-size: 0.88rem;
+            color: #4b4f60;
+            margin: 0;
+        }
+
+        /* 引用摘录 (FAQ 样式) */
+        .faq-block {
+            margin-top: 1rem;
+        }
+        .faq-block summary {
+            cursor: default;
+            font-weight: 500;
+            color: #1b1e2b;
+            padding: 0.5rem 0 0.2rem;
+            border-bottom: 1px dashed #dadde5;
+        }
+        .faq-block p {
+            margin: 0.5rem 0 0.8rem 1rem;
+            color: #3c4053;
+        }
+
+        /* 页尾 */
+        .footer-note {
+            text-align: center;
+            font-size: 0.82rem;
+            color: #7b7f91;
+            border-top: 1px solid #ebedf2;
+            padding-top: 1.6rem;
+            margin-top: 0.6rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .hero-card {
+                padding: 1.6rem 1.2rem;
+            }
+            .hero-card h1 {
+                font-size: 1.6rem;
+            }
+            .section-card {
+                padding: 1.4rem 1.2rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+            .callout {
+                padding: 1rem 1rem;
+            }
+            .faq-block p {
+                margin-left: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 简洁博客式 hero -->
+    <div class="hero-card">
+        <h1>关于「爱游戏」的稳定入口与页面说明</h1>
+        <div class="subhead">一份整理后的记录，写给习惯直接访问的人</div>
+        <div class="meta-line">最近更新 · 2025 · 站点索引</div>
+    </div>
+
+    <!-- 介绍段落 -->
+    <div class="section-card">
+        <h2>为什么需要一份说明</h2>
+        <p>
+            很多爱玩小组件或轻量交互的人，会反复回到同一个页面。如果你也习惯把某个站点当作日常入口，那么确认它的访问方式与内容边界就很重要。<a href="https://web-home-aiyouxi.com.cn">爱游戏</a> 一直保持着一个干净的主页结构，没有多余跳转，也没有自动弹窗。这个页面就是它的起点。
+        </p>
+        <p>
+            对于新访客，看到一个不花哨但稳定的首页，往往比复杂的引导更可靠。这也是我整理这篇说明的原因之一。
+        </p>
+    </div>
+
+    <!-- 多段正文 + 引用提示 -->
+    <div class="section-card">
+        <h2>入口与访问习惯</h2>
+        <p>
+            多数时候，我们需要的只是一个不会被收藏夹遗忘的地址。我注意到，<a href="https://web-home-aiyouxi.com.cn">爱游戏</a> 并没有在浏览器标题或页面里加入夸张的口号，它的设计偏向直接展示内容卡片。这种风格适合那些想安静浏览、而不是被催促操作的人。
+        </p>
+        <p>
+            从去年秋天到现在，我偶尔会打开这个页面看看有什么新东西。它的更新节奏不算快，但每次改动都保留了之前的主要分区。
+        </p>
+        <!-- 引用提示块 -->
+        <div class="callout">
+            <strong>一点提醒：</strong> 如果你的浏览器缓存了旧样式，或者遇到布局偏移，可以试试无痕模式访问一次。大部分时候不需要，但如果页面加载异常，这个动作通常能解决。
+        </div>
+        <p>
+            另外，不要把主站路径和子功能路径搞混。直接访问根目录总是最稳的。
+        </p>
+    </div>
+
+    <!-- 特点/场景卡片 -->
+    <div class="section-card">
+        <h2>适合哪些场景</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h3>碎片时间打开</h3>
+                <p>没有复杂注册，也不强制刷新。适合在等待的间隙快速看一眼。</p>
+            </div>
+            <div class="feature-item">
+                <h3>内容索引</h3>
+                <p>想要回顾之前的使用记录，首页提供了清晰的分类入口。</p>
+            </div>
+            <div class="feature-item">
+                <h3>稳定的书签</h3>
+                <p>从首屏到二级页面的跳转关系简单，不会因为结构变动丢失参考点。</p>
+            </div>
+            <div class="feature-item">
+                <h3>轻对比或回忆</h3>
+                <p>如果你也保留着之前的版本印象，可以用现在的页面做对照。</p>
+            </div>
+        </div>
+        <p style="margin-top: 1.2rem; font-size: 0.9rem; color: #4c5065;">
+            以上场景基于个人使用体验，不代表官方说明。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要 / 访问提示 -->
+    <div class="section-card">
+        <h2>常见想法</h2>
+        <div class="faq-block">
+            <summary>页面一直没变，是正常现象吗？</summary>
+            <p>是的。很多入口页面并不需要频繁改版。如果内容结构稳定，说明维护者倾向于可靠而非花哨。</p>
+            <summary>我能否通过这个页面找到更多相关功能？</summary>
+            <p>建议先从首页的导航卡片开始。另外，直接搜索「爱游戏」有时会看到镜像或转载，但最可靠的还是记住根域名。</p>
+            <summary>为什么强调稳定入口？</summary>
+            <p>因为很多站点会在不同渠道设置不同的落地页，但 <a href="https://web-home-aiyouxi.com.cn">爱游戏</a> 的根路径一直保留着最原始的样式，算是一种不变的习惯锚点。</p>
+        </div>
+    </div>
+
+    <!-- 收尾句 -->
+    <div class="section-card" style="text-align: left;">
+        <p style="margin-bottom: 0.2rem;">
+            以上内容基于个人观察整理，只作为页面浏览参考。如果需要直接访问主站，地址栏键入 <code>web-home-aiyouxi.com.cn</code> 即可。欢迎保持自己的使用节奏。
+        </p>
+    </div>
+
+    <div class="footer-note">
+        <span>记录 · 无推广 · 仅做索引说明</span>
+    </div>
+</div>
+</body>
+</html>
