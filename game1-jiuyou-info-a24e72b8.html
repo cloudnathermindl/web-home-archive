@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>九游娱乐 · 简明指南与访问提醒</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #fde9d8 0%, #f7d8b0 40%, #f1c99a 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem 3rem;
+      line-height: 1.6;
+      color: #2e241d;
+    }
+
+    .page-wrap {
+      max-width: 820px;
+      width: 100%;
+      background: rgba(255, 250, 240, 0.75);
+      backdrop-filter: blur(4px);
+      border-radius: 42px 42px 32px 32px;
+      box-shadow: 0 12px 30px rgba(110, 70, 40, 0.18);
+      padding: 2.2rem 2rem 2.8rem;
+      transition: all 0.2s ease;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 550;
+      letter-spacing: -0.01em;
+      color: #4f3623;
+      background: linear-gradient(to right, #6a4127, #8b5e3c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.6rem;
+      display: inline-block;
+    }
+
+    .subhead {
+      font-size: 1.1rem;
+      color: #5d4637;
+      border-left: 4px solid #c8915e;
+      padding-left: 1rem;
+      margin-top: 0.2rem;
+      margin-bottom: 2.2rem;
+      font-weight: 400;
+      background: rgba(196, 143, 93, 0.08);
+      border-radius: 0 12px 12px 0;
+      width: fit-content;
+    }
+
+    .card {
+      background: #fffcf7;
+      border-radius: 28px;
+      padding: 1.8rem 1.8rem 2rem;
+      box-shadow: 0 6px 16px rgba(138, 87, 47, 0.08);
+      margin-bottom: 2rem;
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #563c28;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .card h2::before {
+      content: "✦";
+      display: inline-block;
+      color: #c1804a;
+      font-size: 1.3rem;
+      margin-right: 0.3rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .highlight-box {
+      background: #efe2d1;
+      padding: 1rem 1.4rem;
+      border-radius: 60px;
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem 1.2rem;
+      margin: 1.2rem 0 0.8rem;
+    }
+
+    .highlight-box a {
+      background: #6a4127;
+      color: #fcf3e9;
+      text-decoration: none;
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 500;
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 6px rgba(106, 65, 39, 0.25);
+    }
+
+    .highlight-box a:hover {
+      background: #86573a;
+      transform: scale(1.03);
+      box-shadow: 0 6px 14px rgba(106, 65, 39, 0.3);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.2rem;
+      margin: 1.4rem 0 0;
+    }
+
+    .feature-item {
+      background: #faf1e5;
+      border-radius: 24px;
+      padding: 1.2rem 0.8rem 1rem;
+      text-align: center;
+      font-weight: 450;
+      border: 1px solid #eddccb;
+      transition: all 0.15s;
+    }
+
+    .feature-item .icon {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .feature-item span {
+      display: block;
+      font-size: 0.95rem;
+      color: #3c2b1e;
+    }
+
+    .tip-note {
+      background: #f7efe6;
+      border-radius: 24px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.6rem 0 0.8rem;
+      border-left: 6px solid #b47d53;
+    }
+
+    .faq-mini {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px dashed #dac2ab;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.8rem;
+      background: #fffaf4;
+      padding: 0.6rem 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.1s;
+    }
+
+    .faq-mini details[open] {
+      background: #f7ede1;
+    }
+
+    .faq-mini summary {
+      font-weight: 500;
+      color: #4d3827;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-mini summary::marker {
+      color: #b37f54;
+    }
+
+    .faq-mini p {
+      margin: 0.5rem 0 0.2rem;
+      font-size: 0.95rem;
+      padding-left: 0.4rem;
+    }
+
+    .footer-note {
+      margin-top: 2.2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #735d4a;
+      border-top: 1px solid #dac1ab;
+      padding-top: 1.2rem;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 600px) {
+      .page-wrap {
+        padding: 1.4rem 1rem 2rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      .card {
+        padding: 1.4rem 1rem 1.6rem;
+      }
+      .highlight-box {
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 40px;
+        text-align: center;
+      }
+      .highlight-box a {
+        text-align: center;
+      }
+      .feature-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+  <h1>九游娱乐 · 使用指南</h1>
+  <div class="subhead">一份简明、坦诚的访问提醒与平台说明</div>
+
+  <!-- 摘要卡片 -->
+  <div class="card">
+    <h2>平台摘要</h2>
+    <p><strong>九游娱乐</strong> 是一个综合性数字互动平台，整合了休闲游戏、社交轻应用与线上娱乐内容。面向日常想放松片刻、寻找轻量趣味的用户，提供简洁的访问入口与稳定的体验环境。</p>
+    <p>无论你是初次接触还是偶尔使用，下面的内容可以帮助你快速了解它的特点与使用节奏。</p>
+
+    <div class="highlight-box">
+      <span style="color:#3f2d1f;">👉 想直接探索？</span>
+      <a href="https://game1-jiuyou.com">九游娱乐</a>
+    </div>
+  </div>
+
+  <!-- 亮点卡片 -->
+  <div class="card">
+    <h2>核心亮点</h2>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <span class="icon">🎲</span>
+        <span>轻量启动，无需繁琐注册</span>
+      </div>
+      <div class="feature-item">
+        <span class="icon">🔄</span>
+        <span>内容更新平稳，节奏友好</span>
+      </div>
+      <div class="feature-item">
+        <span class="icon">🧩</span>
+        <span>多样休闲场景，适配碎片时间</span>
+      </div>
+      <div class="feature-item">
+        <span class="icon">🔐</span>
+        <span>基础隐私保护，无过度索取</span>
+      </div>
+    </div>
+    <p style="margin-top:1.2rem; font-size:0.95rem;">平台整体偏向<strong>轻交互、低门槛</strong>的设计，无论用手机还是电脑，都能快速进入状态。这一点与许多同类服务相比显得更克制，适合想要简单放松的用户。</p>
+  </div>
+
+  <!-- 使用建议与场景 -->
+  <div class="card">
+    <h2>使用建议 & 场景</h2>
+    <p><strong>什么时候适合打开？</strong> 等车、休息间隙、工作后的缓冲时间 —— 这些零散的片刻恰好是它的舒适区。不需要投入太多精力，就能获得一些轻量的乐趣。</p>
+    <p><strong>一个小建议：</strong> 每次使用前先确认自己的网络环境是否稳定。平台内部分内容依赖实时加载，流畅的网络会让体验更顺滑。另外，留意自己的使用时长，保持适度。</p>
+    <div class="tip-note">
+      <span style="font-weight:500;">💡 实用提醒</span>
+      <p style="margin-top:0.4rem; margin-bottom:0;">如果你是通过 <a href="https://game1-jiuyou.com" style="color:#6a4127; text-decoration:underline; font-weight:500;">九游娱乐</a> 开始首次访问，建议先浏览首页的引导模块，那里包含了基础操作说明。不必急着深入，慢慢熟悉布局即可。</p>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 + 可信说明 -->
+  <div class="card" style="margin-bottom:1rem;">
+    <h2>常见疑问 · 快速摘要</h2>
+    <div class="faq-mini">
+      <details>
+        <summary>这个平台需要下载额外的软件吗？</summary>
+        <p>不需要。它基于浏览器访问，打开链接即可使用，无需安装客户端或插件。不过部分功能可能建议使用最新版浏览器。</p>
+      </details>
+      <details>
+        <summary>内容对所有人开放吗？</summary>
+        <p>平台面向成年用户，内容经过基础审核，但具体可用性可能因地区有所差异。建议根据当地法规和个人判断使用。</p>
+      </details>
+      <details>
+        <summary>访问时有哪些注意事项？</summary>
+        <p>请使用个人设备并保持操作系统与浏览器更新。避免在公共设备上记住密码或敏感信息。平台不会主动索要过多隐私，但用户仍应自行保护账号安全。</p>
+      </details>
+      <details>
+        <summary>页面加载慢怎么办？</summary>
+        <p>建议先检查网络连接；如果持续缓慢，可尝试切换网络或稍后再试。偶尔的维护更新也可能导致暂时延迟。</p>
+      </details>
+    </div>
+    <p style="margin-top:1.2rem; font-size:0.9rem; border-top:1px dashed #dac2ab; padding-top:1rem; color:#4f3a29;">
+      ⚖️ 以上说明基于平台常规使用体验整理，不构成任何形式的承诺。请以实际页面为准，理性访问。
+    </p>
+  </div>
+
+  <div class="footer-note">
+    九游娱乐 · 以轻松的方式，陪伴你的碎片时光。<br>
+    页面内容仅供信息参考，无诱导、无夸大。
+  </div>
+</div>
+</body>
+</html>
