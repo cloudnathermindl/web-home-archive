@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九游娱乐 · 持续陪伴的角落</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            color: #2d2d2d;
+            line-height: 1.7;
+            padding: 3rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 720px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* 极简导航 */
+        .site-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e6e6e6;
+            margin-bottom: 3rem;
+        }
+
+        .site-nav .logo {
+            font-size: 1.3rem;
+            font-weight: 550;
+            letter-spacing: 0.3px;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .site-nav .logo:hover {
+            opacity: 0.7;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a {
+            color: #555;
+            text-decoration: none;
+            padding-bottom: 0.2rem;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #121212;
+            border-bottom-color: #b3b3b3;
+        }
+
+        /* hero */
+        .hero {
+            margin-bottom: 3.5rem;
+        }
+
+        .hero h1 {
+            font-weight: 480;
+            font-size: 2.2rem;
+            line-height: 1.3;
+            letter-spacing: -0.3px;
+            margin-bottom: 0.75rem;
+            color: #1e1e1e;
+        }
+
+        .hero .sub {
+            font-size: 1.05rem;
+            color: #5c5c5c;
+            border-left: 3px solid #d0d0d0;
+            padding-left: 1.2rem;
+            max-width: 600px;
+        }
+
+        /* 正文窄栏 */
+        .content-section {
+            margin: 2.5rem 0;
+        }
+
+        .content-section h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.2px;
+            color: #222;
+        }
+
+        .content-section p {
+            margin-bottom: 1.4rem;
+            color: #3a3a3a;
+        }
+
+        .content-section p a {
+            color: #2d2d2d;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #bfbfbf;
+            transition: text-decoration-color 0.2s;
+        }
+
+        .content-section p a:hover {
+            text-decoration-color: #7a7a7a;
+        }
+
+        /* 场景卡片模块 */
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.8rem;
+            margin: 2.8rem 0 2rem;
+        }
+
+        .scene-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 1.8rem 1.2rem 1.6rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), 0 6px 16px rgba(0, 0, 0, 0.03);
+            transition: box-shadow 0.25s, transform 0.15s;
+        }
+
+        .scene-card:hover {
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04), 0 10px 24px rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
+        }
+
+        .scene-card .card-icon {
+            display: block;
+            font-size: 1.8rem;
+            margin-bottom: 0.6rem;
+            line-height: 1;
+        }
+
+        .scene-card h3 {
+            font-size: 1.1rem;
+            font-weight: 520;
+            margin-bottom: 0.5rem;
+            color: #1f1f1f;
+        }
+
+        .scene-card p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* 常见说明（FAQ 摘要风格） */
+        .faq-mini {
+            background: #f4f4f4;
+            border-radius: 16px;
+            padding: 2rem 2rem 1.6rem;
+            margin: 2.8rem 0 2.2rem;
+        }
+
+        .faq-mini h2 {
+            font-size: 1.3rem;
+            font-weight: 480;
+            margin-bottom: 1.2rem;
+            color: #1e1e1e;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 520;
+            margin-bottom: 0.2rem;
+            color: #2b2b2b;
+        }
+
+        .faq-item p {
+            margin: 0.1rem 0 0.2rem 0;
+            color: #4d4d4d;
+            font-size: 0.95rem;
+        }
+
+        .faq-item a {
+            color: #2d2d2d;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-color: #c6c6c6;
+        }
+
+        .faq-item a:hover {
+            text-decoration-color: #7a7a7a;
+        }
+
+        /* 底部提示 */
+        .footer-note {
+            margin-top: 3.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e2e2;
+            font-size: 0.85rem;
+            color: #888;
+            text-align: center;
+        }
+
+        .footer-note a {
+            color: #6b6b6b;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-color: #d2d2d2;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            body {
+                padding: 2rem 1rem;
+            }
+
+            .site-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .scenes-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .faq-mini {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .scene-card {
+                padding: 1.5rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .nav-links {
+                font-size: 0.85rem;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- 顶部导航 -->
+        <nav class="site-nav">
+            <a href="#" class="logo">九游</a>
+            <ul class="nav-links">
+                <li><a href="#">再次访问</a></li>
+                <li><a href="#">收藏夹</a></li>
+                <li><a href="#">持续关注</a></li>
+            </ul>
+        </nav>
+
+        <!-- hero -->
+        <header class="hero">
+            <h1>再次停留的地方</h1>
+            <div class="sub">
+                有些页面值得反复回来 — 不是因为它不停在变，而是因为你知道每次来都能找到熟悉的角落。
+            </div>
+        </header>
+
+        <!-- 核心介绍 / 再次访问的缘由 -->
+        <section class="content-section">
+            <h2>收藏夹里的坐标</h2>
+            <p>
+                如果你曾无意间关闭一个页面，后来却想再回去看看，那种感觉我大概记得。正因如此，有人习惯把喜欢的站点放进书签栏。<a href="https://com-zh-jiuyou.com">九游娱乐</a>就是这样一个地方：你不一定每天都打开，但隔段时间想起来，点进去仍然亲切。没有杂乱的通知，没有强推的消息，它只是安静地在那里。
+            </p>
+            <p>
+                比起第一次探访的新鲜感，第二次、第三次的熟悉感反而更难得。一个能让人愿意标记并再次打开的页面，背后往往是克制的设计和持续稳定的内容。这也是为什么，我选择把链接放在这里——不是作为入口，而是作为一个小小的锚点。
+            </p>
+        </section>
+
+        <!-- 三个场景模块（轻量卡片） -->
+        <div class="scenes-grid">
+            <div class="scene-card">
+                <span class="card-icon">📂</span>
+                <h3>周末的偶然想起</h3>
+                <p>
+                    整理浏览器书签时，翻到之前收藏的页面。点进去，内容还在，节奏依旧，像一本翻到一半的书。
+                </p>
+            </div>
+            <div class="scene-card">
+                <span class="card-icon">🔖</span>
+                <h3>习惯性的回访</h3>
+                <p>
+                    有些站点你不一定每天看，但每隔一两周就会自然地点开一次，不需要理由——它已经成了数字生活里的一小片固定位置。
+                </p>
+            </div>
+            <div class="scene-card">
+                <span class="card-icon">🔄</span>
+                <h3>推荐给朋友后</h3>
+                <p>
+                    当你说“这个我一直有在留意”的时候，对方打开页面，那种“对，就是这里”的确认感，是收藏行为中最好的部分。
+                </p>
+            </div>
+        </div>
+
+        <!-- 常见说明（FAQ 摘要） -->
+        <div class="faq-mini">
+            <h2>一些你可能想问的</h2>
+            <div class="faq-item">
+                <strong>为什么是“再次访问”而不是“首次”？</strong>
+                <p>
+                    因为首次访问是偶然，再次访问才是选择。在这个页面上，我们更想聊的是后者——你决定回来看看的那个瞬间。
+                </p>
+            </div>
+            <div class="faq-item">
+                <strong>这个页面会频繁更新吗？</strong>
+                <p>
+                    不会。它的存在更接近一个坐标：内容稳定，结构清晰。如果你把它放进收藏夹，隔几周回来，它仍然是你记得的样子。
+                </p>
+            </div>
+            <div class="faq-item">
+                <strong>想了解更多关于 <a href="https://com-zh-jiuyou.com">九游娱乐</a> 的细节？</strong>
+                <p>
+                    你可以把这里当作一个安静的侧写，更完整的内容则在它自己的页面里。
+                </p>
+            </div>
+        </div>
+
+        <!-- 轻提示 -->
+        <section class="content-section" style="margin-top: 1.5rem;">
+            <p style="font-size: 0.9rem; color: #6f6f6f;">
+                收藏一个页面，有时只是出于一种直觉：这个地方值得再回来一次。
+            </p>
+        </section>
+
+        <!-- 底部 -->
+        <div class="footer-note">
+            <span>· 持续关注 · 自然回访 ·</span>
+            <br>
+            <span style="display: inline-block; margin-top: 0.5rem;">
+                <a href="https://com-zh-jiuyou.com">九游娱乐</a> — 一个安静的坐标
+            </span>
+        </div>
+    </div>
+</body>
+</html>
